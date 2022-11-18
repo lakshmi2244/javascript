@@ -6,8 +6,6 @@
 	<title></title>
 </head>
 <body>
-	<section  id="emp">
-	</section>
 	<script type="text/javascript">
 		/*fetch("https://reqres.in/api/users?page=2")
 		.then((res)=>{
@@ -29,7 +27,7 @@
 				//block.innerHTML+=`<p>${employees[i].first_name}</p>`
 			}
 		}*/
-		fetch("https://reqres.in/api/unknown")
+		/*fetch("https://reqres.in/api/unknown")
 		.then((res)=>{
 			console.log(res)
 			return res.json()
@@ -47,7 +45,24 @@
 				</div>`;
 				//block.innerHTML+=`<p>${employees[i].first_name}</p>`
 			}
-		}
+		}*/
+		fetch("https://reqres.in/api/users",{
+			method:"POST",
+			headers:{
+				"Content-Type":"application/json"
+			},
+			body:JSON.stringify({name:"prasanna",age:20,gender:"female"})
+		})
+		.then((res)=>{
+			console.log(res)
+			if(res.status===201){
+				alert("data added successfully")
+			}
+			return res.json()
+		})
+		.then((update)=>{
+			console.log(update)
+		})
 	</script>
 </body>
 </html>
